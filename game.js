@@ -12,7 +12,7 @@ function Sumbox ()
 	this.start = function(size)
 	{
 		_storage = new Storage();
-		$('.best span').html(_storage.getBestScore());
+		$('.best span').html(_game.formatNumber(_storage.getBestScore()));
 		
 		_size = size;
 		for(var x = 0; x < size; x++)

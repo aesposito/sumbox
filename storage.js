@@ -19,7 +19,25 @@ function Storage()
 			return true;
 		}
 		return false;
-		
+	}
+
+	this.getBestBox = function()
+	{
+		var best = localStorage.getItem('bestBox');
+		if (best == null)
+		{
+			best = 0;
+		}
+		return best;
+	}
+
+	this.saveBestBox = function(best){
+		if (best > _storage.getBestBox())
+		{
+			localStorage.setItem('bestBox', best);
+			return true;
+		}
+		return false;
 	}
 
 }

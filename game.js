@@ -13,6 +13,7 @@ function Sumbox ()
 	{
 		_storage = new Storage();
 		$('.best span').html(_game.formatNumber(_storage.getBestScore()));
+		$('.best_box span').html(_storage.getBestBox());
 		
 		_size = size;
 		for(var x = 0; x < size; x++)
@@ -23,6 +24,8 @@ function Sumbox ()
 				$('.row_'+x).append('<div class="game_cell cell_'+x+'_'+y+'" data-past="false" data-x="'+x+'" data-y="'+y+'" data-value="0"><span></span></div>');
 			}
 		}
+
+		$('.game_over').height($(document).height());
 		_game.events();
 		_game.next();
 	};
@@ -128,6 +131,12 @@ function Sumbox ()
 			if (best)
 			{
 				$('.best span').html(_game.formatNumber(_score));
+			}
+
+			var best = _storage.saveBestBox(next);
+			if (best)
+			{
+				$('.best_box span').html(next);
 			}
 
 			_list_cells = Array();

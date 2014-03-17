@@ -1,6 +1,7 @@
 <html>
 <head>
-	<title>Sumbox</title>
+	<title>Sumbox - http://aesposito.github.io/sumbox/</title>
+
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="game.js"></script>
 	<script src="storage.js"></script>
@@ -23,30 +24,45 @@
 	</script>
 </head>
 <body>
-	<div class="table content">
-		<div class="left info_container">
-			<span class="next">NEXT</span>
-			<div class="cell_next">1</div>
-			<div class="score">
-				SCORE<br/><span>0</span>
-			</div>
-			<br/>
-			<div class="best">
-				BEST<br/><span>0</span>
-			</div>
-			<div class="content_help">
-				<h3>HOW TO PLAY</h3>
-				<p>
-					Click to add next box. Combine 3 or more equals. Vertical and horizontal<br/>
-				</p>
-				<div class="btTwitter">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-text="Playing #sumbox" data-via="alexisesposito">Tweet</a>
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-				</div>
-			</div>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=1375254929415250";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div class="content_game">
+		<div class="game_container"></div>
+	</div>
+
+	<div class="info_container">
+		<span class="next">NEXT BOX</span>
+		<div class="cell_next">1</div>
+		<div class="score">
+			SCORE<br/><span>0</span>
 		</div>
-		<div class="left content_game">
-			<div class="game_container"></div>
+		<br/>
+		<div class="best">
+			BEST SCORE<br/><span>0</span>
+		</div>
+		<br/>
+		<div class="best_box">
+			BEST BOX<br/><span>0</span>
+		</div>
+		<div class="content_help">
+			<h3>HOW TO PLAY</h3>
+			<p>
+				Click to add next box. Combine 3 or more equals. Vertical and horizontal.<br/>
+			</p>
+			<div>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-text="Playing #sumbox" data-via="alexisesposito">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				<br/><br/>
+				<div class="fb-share-button" data-href="http://aesposito.github.io/sumbox/" data-width="80" data-type="button_count"></div>
+			</div>
 		</div>
 	</div>
 

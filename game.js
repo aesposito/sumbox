@@ -13,10 +13,7 @@ function Sumbox ()
 	{
 		_storage = new Storage();
 		$('.best span').html(_game.formatNumber(_storage.getBestScore()));
-<<<<<<< HEAD
-=======
 		$('.best_box span').html(_storage.getBestBox());
->>>>>>> gh-pages
 		
 		_size = size;
 		for(var x = 0; x < size; x++)

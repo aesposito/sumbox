@@ -103,6 +103,8 @@ function Sumbox ()
 		_list_cells = Array();
 		$('.game_cell').attr('data-past', 'false');
 		_game.searchCell(cell, null);
+		var total_sum_score = 0;
+		var item_score;
 
 		while(_list_cells.length > 2)
 		{
@@ -116,16 +118,18 @@ function Sumbox ()
 			var colors = _game.getColor(next);
 			cell.attr('data-value', next);
 			cell.children('span').html(next);
-
 			cell.children('span').css('background-color', colors[0]);
 			cell.children('span').css('color', colors[1]);
+			item_score = cell;
 
 			if (next > _max_value)
 			{
 				_max_value = next;
 			}
 
-			_score += (_list_cells.length * 10) * next;
+			var sumScore = (_list_cells.length * 10) * next;
+			total_sum_score += sumScore
+			_score += sumScore;
 			$('.score span').html(_game.formatNumber(_score));
 			var best = _storage.saveBestScore(_score);
 			if (best)
@@ -144,11 +148,35 @@ function Sumbox ()
 			_game.searchCell(cell, null);
 		}
 
+		if (total_sum_score != 0)
+		{
+			_game.showAnimationScore(item_score, total_sum_score);
+		}
+
 		if (_game.checkEndGame())
 		{
 			$('.game_over').fadeIn(500);
 		}
 
+	}
+
+	this.showAnimationScore = function(box, score)
+	{
+		$('body').append('<label class="score_animation">' + score + '</label>');
+		var offset = box.offset();
+		$(".score_animation").offset({ 
+			top: (offset.top) + ((box.width() / 2) - ($(".score_animation").width() / 2)), 
+			left: offset.left + ((box.width() / 2) - ($(".score_animation").height() / 2))
+		});
+
+		$(".score_animation").animate({
+			'margin-top' : '-60px',
+			'opacity':0
+		}, 1000, function(e)
+		{
+			$(".score_animation").remove();
+		});
+		
 	}
 
 	this.checkEndGame = function()
@@ -317,11 +345,3 @@ function Sumbox ()
 
 
 }
-
-
-
-
-
-
-
-

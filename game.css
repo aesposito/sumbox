@@ -200,3 +200,13 @@ body
 	width: 75px;
 	display: inline-block;
 }
+
+.score_animation
+{
+	font-size: 20px;
+	font-weight: bold;;
+	color: #FFF;
+	position: absolute;
+	z-index: 1000;
+	text-shadow: 0.1em 0.1em 0.2em black
+}

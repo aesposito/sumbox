@@ -156,6 +156,7 @@ function Sumbox ()
 		if (_game.checkEndGame())
 		{
 			$('.game_over').fadeIn(500);
+			$('.final_score').html('YOUR SCORE: ' + _game.formatNumber(_score));
 		}
 
 	}
